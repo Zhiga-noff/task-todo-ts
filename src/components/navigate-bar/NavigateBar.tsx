@@ -13,7 +13,7 @@ export const NavigateBar = () => {
               <NavLink
                 to={item.href}
                 className={({ isActive }) => {
-                  isActive ? styles.act : styles.link;
+                  return isActive ? styles.act : styles.link;
                 }}
               >
                 {item.name}
