@@ -1,0 +1,40 @@
+.container {
+  width: 62.5rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 500 !important;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+    bottom: -0.625rem;
+    z-index: -100;
+    width: calc(100% - 1.25rem);
+  }
+
+  &::after {
+    z-index: -200;
+    width: calc(100% - 2.5rem);
+    bottom: -1.25rem;
+  }
+}
+
+.background {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}

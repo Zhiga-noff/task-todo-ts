@@ -1,0 +1,19 @@
+@import 'src/assets/styles/colors';
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.25rem 0.625rem;
+  font-size: 1.5rem;
+}
+
+.list {
+  display: flex;
+  column-gap: 3rem;
+
+  a {
+    color: $text;
+  }
+}
