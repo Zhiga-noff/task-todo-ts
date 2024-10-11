@@ -33,3 +33,14 @@
     }
   }
 }
+
+.clear {
+  background-color: inherit;
+  font-size: 1.5rem;
+  color: $text;
+  transition-duration: 0.3s;
+
+  &:hover {
+    color: $pink;
+  }
+}

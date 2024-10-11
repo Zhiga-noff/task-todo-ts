@@ -22,7 +22,7 @@ export const NavigateBar = () => {
           );
         })}
       </ul>
-      <button>Clear completed</button>
+      <button className={styles.clear}>Clear completed</button>
     </nav>
   );
 };

@@ -1,0 +1,32 @@
+@import 'src/assets/styles/colors';
+
+.inputContainer {
+  border-bottom: 3px solid $grey;
+  padding: 0 1.25rem;
+}
+
+.arrowBtn {
+  background-color: inherit;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    background-color: $grey;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    left: 17.5%;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+    right: 17.5%;
+  }
+}
