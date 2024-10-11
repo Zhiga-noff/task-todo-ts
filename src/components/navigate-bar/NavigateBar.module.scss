@@ -12,8 +12,23 @@
 .list {
   display: flex;
   column-gap: 3rem;
+  align-items: center;
+}
 
-  a {
-    color: $text;
+.link {
+  color: $text;
+  display: block;
+  transition-duration: 0.3s;
+
+  &:hover {
+    color: $pink;
+  }
+
+  &.act {
+    @extend %act-btn;
+
+    &:hover {
+      color: $text;
+    }
   }
 }
