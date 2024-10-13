@@ -20,9 +20,12 @@ export const InputTask: FC<IInputProps> = ({updateTasks}) => {
 
     const submitTask: FormEventHandler = (event) => {
         event.preventDefault()
+        if (taskName.trim() === '') {
+            return
+        }
 
         const newTask: TaskTypes = {
-            nameTask: taskName,
+            nameTask: taskName.trim(),
             id: idTask,
             status: 'none'
         }
