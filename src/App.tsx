@@ -19,12 +19,8 @@ export const App = () => {
     const updateStatusTask = (id: string): void => {
         const newTasksStatus = tasks.map((task) => {
             if (task.id === id && task.status === 'none') {
-                console.log(1)
                 task.status = 'done'
-            }
-
-            if (task.id === id && task.status === 'done') {
-                console.log(2)
+            } else if (task.id === id && task.status === 'done') {
                 task.status = 'none'
             }
 
