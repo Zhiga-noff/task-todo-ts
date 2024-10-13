@@ -1,12 +1,13 @@
 import {navMenuConstant} from '../../libs/constant/nav-menu.constant';
 import styles from './NavigateBar.module.scss';
 import {clsx} from "clsx";
-import {FC, useEffect, useState} from "react";
+import {Dispatch, FC, SetStateAction, useEffect, useState} from "react";
 import {TaskTypes} from "../../libs/types/task.types";
 
 interface INavigateBarProps {
     activeTab: 'All' | 'Completed' | 'Active'
-    setActiveTab: (value: (((prevState: string) => string) | string)) => void
+    // setActiveTab: (value: (((prevState: string) => string) | string)) => void
+    setActiveTab: Dispatch<SetStateAction<'All' | 'Completed' | 'Active'>>
     refreshNow: () => void
     tasks: TaskTypes[]
 }

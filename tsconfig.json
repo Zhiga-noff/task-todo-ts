@@ -4,7 +4,21 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    //    "types": [
+    //      "jest",
+    //      "node"
+    //    ],
+    "outDir": "./dist",
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    // Опционально для генерации карт деклараций
+    "allowJs": true,
+    "target": "es6",
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
     "types": [
+      "vite/client",
       "jest",
       "node"
     ]
@@ -19,6 +33,12 @@
   ],
   "include": [
     "src/**/*",
+    "src/**/*.tsx",
     "src/**/*.scss"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.tsx"
+    // Убедитесь, что тесты исключены
   ]
 }
