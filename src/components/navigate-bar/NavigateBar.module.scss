@@ -1,0 +1,62 @@
+@import 'src/assets/styles/colors';
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.25rem 0.625rem;
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+}
+
+.activeTasks {
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  column-gap: 3rem;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    column-gap: 0;
+    justify-content: space-between;
+  }
+}
+
+.link {
+  color: $text;
+  display: block;
+  transition-duration: 0.3s;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $pink;
+  }
+
+  &.act {
+    @extend %act-btn;
+
+    &:hover {
+      color: $text;
+    }
+  }
+}
+
+.clear {
+  background-color: inherit;
+  font-size: 1.5rem;
+  color: $text;
+  transition-duration: 0.3s;
+
+
+  &:hover {
+    color: $pink;
+  }
+}
