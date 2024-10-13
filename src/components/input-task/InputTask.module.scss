@@ -3,6 +3,8 @@
 .inputContainer {
   border-bottom: 3px solid $grey;
   padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
 }
 
 .arrowBtn {
@@ -28,5 +30,17 @@
   &::after {
     transform: rotate(-45deg);
     right: 17.5%;
+  }
+}
+
+.input {
+  width: 100%;
+  font-size: 3rem;
+  padding: 1.25rem 2rem;
+
+  &::placeholder {
+    color: $grey;
+    font-style: italic;
+
   }
 }
