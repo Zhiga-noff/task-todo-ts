@@ -1,26 +1,41 @@
 import {navMenuConstant} from '../../libs/constant/nav-menu.constant';
 import styles from './NavigateBar.module.scss';
-import {useState} from "react";
+import {clsx} from "clsx";
+import {FC, useEffect, useState} from "react";
+import {TaskTypes} from "../../libs/types/task.types";
 
-export const NavigateBar = () => {
+interface INavigateBarProps {
+    activeTab: 'All' | 'Completed' | 'Active'
+    setActiveTab: (value: (((prevState: string) => string) | string)) => void
+    refreshNow: () => void
+    tasks: TaskTypes[]
+}
 
-    const [isActive, setIsActive] = useState(true)
+export const NavigateBar: FC<INavigateBarProps> = ({activeTab, setActiveTab, refreshNow, tasks}) => {
+    const [activeTask, setActiveTask] = useState<TaskTypes[]>([])
+
+    useEffect(() => {
+        setActiveTask(tasks.filter(task => task.status === 'none'))
+    }, [tasks])
+
 
     return (
         <nav className={styles.navContainer}>
-            <p className={styles.activeTasks}>2 items left</p>
+            <p className={styles.activeTasks}>{activeTask.length} items left</p>
             <ul className={styles.list}>
                 {navMenuConstant.map((item) => {
                     return (
                         <li key={item.href}
-                            className={`${styles.link} ${isActive ? styles.act : styles.link}`}
+                            className={
+                                clsx(styles.link, {[styles.act]: item.name === activeTab})}
+                            onClick={() => setActiveTab(item.name)}
                         >
                             {item.name}
                         </li>
                     );
                 })}
             </ul>
-            <button className={styles.clear}>Clear completed</button>
+            <button className={styles.clear} onClick={refreshNow}>Clear completed</button>
         </nav>
     );
 };

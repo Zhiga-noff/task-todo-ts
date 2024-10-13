@@ -5,8 +5,11 @@ import {NavigateBar} from "./components/navigate-bar/NavigateBar";
 import styles from './App.module.scss'
 import {TaskElement} from "./components/task-element/TaskElement";
 
+type Tab = 'All' | 'Completed' | 'Active'
+
 export const App = () => {
     const [tasks, setTasks] = useState<TaskTypes[]>([])
+    const [activeTab, setActiveTab] = useState<Tab>('All')
 
     useEffect(() => {
         const stringTasks = localStorage.getItem('tasks')
@@ -30,6 +33,11 @@ export const App = () => {
         setTasks(newTasksStatus)
     }
 
+    const refreshNow = (): void => {
+        localStorage.clear()
+        setTasks([])
+    }
+
     return (
         <>
             <h1>todos</h1>
@@ -37,9 +45,21 @@ export const App = () => {
                 <div className={styles.background}>
                     <InputTask updateTasks={setTasks}/>
                     {Boolean(tasks.length) && <ul>
-                        {tasks.map(task => <TaskElement key={task.id} task={task} statusUpdate={updateStatusTask}/>)}
+                        {tasks
+                            .filter(task => {
+                                if (activeTab === "Active") {
+                                    return task.status === 'none'
+                                }
+                                if (activeTab === "Completed") {
+                                    return task.status === 'done'
+                                }
+                                return true
+                            })
+                            .map(task => <TaskElement key={task.id} task={task}
+                                                      statusUpdate={updateStatusTask}/>)}
                     </ul>}
-                    <NavigateBar/>
+                    <NavigateBar activeTab={activeTab} setActiveTab={setActiveTab} refreshNow={refreshNow}
+                                 tasks={tasks}/>
                 </div>
             </main>
         </>
