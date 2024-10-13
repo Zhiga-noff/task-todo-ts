@@ -4,6 +4,10 @@
   position: relative;
   z-index: 500 !important;
 
+  @media screen and (max-width: 992px) {
+    width: calc(100vw - 1rem);
+  }
+
   &::before,
   &::after {
     content: '';

@@ -11,6 +11,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 992px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (768 - 320)));
+  }
 }
 
 h1 {

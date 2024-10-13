@@ -3,7 +3,7 @@ import {TaskTypes} from "./libs/types/task.types";
 import {InputTask} from "./components/input-task/InputTask";
 import {NavigateBar} from "./components/navigate-bar/NavigateBar";
 import styles from './App.module.scss'
-import {TaskElement} from "./components/task-list/task-element/TaskElement";
+import {TaskElement} from "./components/task-element/TaskElement";
 
 export const App = () => {
     const [tasks, setTasks] = useState<TaskTypes[]>([])
@@ -23,7 +23,7 @@ export const App = () => {
                 <div className={styles.background}>
                     <InputTask updateTasks={setTasks}/>
                     {Boolean(tasks.length) && <ul>
-                        {tasks.map(task => <TaskElement task={task}/>)}
+                        {tasks.map(task => <TaskElement key={task.id} task={task}/>)}
                     </ul>}
                     <NavigateBar/>
                 </div>
