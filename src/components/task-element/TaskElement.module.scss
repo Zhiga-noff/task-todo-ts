@@ -19,6 +19,14 @@
 
   border-radius: 50%;
   border: 1px solid $grey;
+  flex: 0 0 3rem;
+}
+
+.nameTask {
+  //flex: 0 0 80%;
+  max-width: calc(100vw - 2.5rem - 1rem - 3rem - 1.25rem);
+  text-overflow: ellipsis !important;
+  overflow: hidden;
 }
 
 .taskDone {
