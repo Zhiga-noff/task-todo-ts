@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {TaskTypes} from "./libs/types/task.types";
-import {InputTask} from "./components/input-task/InputTask";
-import {NavigateBar} from "./components/navigate-bar/NavigateBar";
+import {TaskTypes} from "../../libs/types/task.types";
+import {InputTask} from "../input-task/InputTask";
+import {NavigateBar} from "../navigate-bar/NavigateBar";
 import styles from './App.module.scss'
-import {TaskElement} from "./components/task-element/TaskElement";
+import {TaskElement} from "../task-element/TaskElement";
 
 type Tab = 'All' | 'Completed' | 'Active'
 
@@ -34,8 +34,10 @@ export const App = () => {
     }
 
     const refreshNow = (): void => {
-        localStorage.clear()
-        setTasks([])
+        setTasks(pre => pre.map(task => {
+            task.status = 'none'
+            return task
+        }))
     }
 
     return (

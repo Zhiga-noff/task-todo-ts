@@ -1,6 +1,6 @@
 import styles from './InputTask.module.scss';
 import * as React from "react";
-import {ChangeEventHandler, FC, FormEventHandler, useState} from "react";
+import {FC, FormEventHandler, useState} from "react";
 import {TaskTypes} from "../../libs/types/task.types";
 import {idGenerate} from "../../utils/id-generate";
 
@@ -14,9 +14,9 @@ export const InputTask: FC<IInputProps> = ({updateTasks}) => {
     const idTask = idGenerate().toString()
 
 
-    const onChangeTask: ChangeEventHandler = (event) => {
-        setTaskName(event.target.value as string)
-    }
+    const onChangeTask = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTaskName(event.target.value);  // теперь TypeScript понимает, что event.target - это input
+    };
 
     const submitTask: FormEventHandler = (event) => {
         event.preventDefault()
