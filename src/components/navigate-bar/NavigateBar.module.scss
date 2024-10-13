@@ -9,7 +9,8 @@
   font-size: 1.5rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 1rem;
+    flex-direction: column;
+    row-gap: 2rem;
   }
 }
 
@@ -54,9 +55,6 @@
   color: $text;
   transition-duration: 0.3s;
 
-  @media screen and (max-width: 639px) {
-    font-size: 1rem;
-  }
 
   &:hover {
     color: $pink;
