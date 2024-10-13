@@ -41,7 +41,7 @@ export const InputTask: FC<IInputProps> = ({updateTasks}) => {
 
     return (
         <form className={styles.inputContainer} onSubmit={submitTask}>
-            <button className={styles.arrowBtn} type={"button"}></button>
+            <button className={styles.arrowBtn}></button>
             <input type="text" className={styles.input} onChange={onChangeTask} value={taskName}
                    placeholder={'What needs to be done?'}/>
         </form>
