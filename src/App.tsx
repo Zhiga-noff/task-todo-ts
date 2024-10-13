@@ -16,6 +16,24 @@ export const App = () => {
 
     }, [])
 
+    const updateStatusTask = (id: string): void => {
+        const newTasksStatus = tasks.map((task) => {
+            if (task.id === id && task.status === 'none') {
+                console.log(1)
+                task.status = 'done'
+            }
+
+            if (task.id === id && task.status === 'done') {
+                console.log(2)
+                task.status = 'none'
+            }
+
+            return task
+        })
+        localStorage.setItem('tasks', JSON.stringify(newTasksStatus))
+        setTasks(newTasksStatus)
+    }
+
     return (
         <>
             <h1>todos</h1>
@@ -23,7 +41,7 @@ export const App = () => {
                 <div className={styles.background}>
                     <InputTask updateTasks={setTasks}/>
                     {Boolean(tasks.length) && <ul>
-                        {tasks.map(task => <TaskElement key={task.id} task={task}/>)}
+                        {tasks.map(task => <TaskElement key={task.id} task={task} statusUpdate={updateStatusTask}/>)}
                     </ul>}
                     <NavigateBar/>
                 </div>
