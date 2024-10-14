@@ -1,6 +1,7 @@
 # Task Todo TS
 
-Приложение для управления задачами (Todo List), разработанное с использованием **TypeScript** и **React**.
+Приложение для управления задачами ([Todo List](https://zhiga-noff.github.io/task-todo-ts/)), разработанное с
+использованием **TypeScript** и **React**.
 
 ## Старт проекта
 
